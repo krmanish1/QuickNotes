@@ -1,0 +1,47 @@
+<div class="h-6"></div>
+<div class="mx-8">
+    <div class="flex font-bold text-sm gap-2 justify-between rounded-md text-[#161B25] items-center bg-white px-3 py-2">
+        <div class="">
+            <i class="bi bi-brush-fill t-xl mr-2"></i>
+            <span>Drawing</span>
+        </div>
+        <div class="flex gap-2">
+            <button class="bg-[#1755E7] rounded-md h-9 w-20 flex items-center justify-center text-white cursor-pointer">
+                <!-- <i class="bi bi-file-earmark-plus-fill"></i> -->
+                <i class="bi bi-plus-lg font-bold"></i>
+                <span class="ml-2">Draw</span>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="flex flex-row py-2 mt-3 gap-2">
+        <div class="flex flex-row gap-9 flex-wrap w-[100%] ">
+            <a href="/user/drawing/canvas" class=" canvas-img w-80 h-56 rounded-md cursor-pointer"
+                style="background-image: url(../../../assets/images/canvas3.png);background-size: cover; background-position: center;">
+                <div class=" text-[#F0F2F5]  canva-info flex justify-start items-start flex-col gap-2 p-2">
+                    <span class="flex justify-start items-center">
+                        <i class="bi bi-brush-fill t-xl mr-2"></i>
+                        <span>Canvas Title</span>
+                    </span>
+                    <span class="flex justify-start items-center gap-2">
+                        <i class="bi bi-clock-fill"></i>
+                        <span>Date</span>
+                    </span>
+                </div>
+                <div class="canvas-operation bg-[#1755E7] px-3 py-2 flex items-center gap-3 rounded-md">
+                    <button
+                        class="bg-[#F0F2F5] hover:bg-[#CFD5E2] text-[#1755E7] hover:text-[#101726] p-2 h-8 w-8 rounded-full flex items-center cursor-pointer">
+                        <i class="bi bi-trash3"></i>
+                    </button>
+                    <button
+                        class="bg-[#F0F2F5] hover:bg-[#CFD5E2] text-[#1755E7] hover:text-[#101726] p-2 h-8 w-8 rounded-full flex items-center cursor-pointer">
+                        <i class="bi bi-download"></i>
+                    </button>
+                </div>
+            </a>
+
+        </div>
+    </div>
+    <!-- <app-canvas></app-canvas> -->
+</div>

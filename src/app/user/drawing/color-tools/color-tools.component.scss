@@ -1,0 +1,30 @@
+.colour-selection {
+    position: relative;
+}
+
+.colour-selection::before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    border: 3px solid white;
+}
+
+.color-box {
+    position: relative;
+
+    .hidden-input {
+        // display: none;
+        opacity: 0;
+        position: absolute;
+        top: 150px;
+        right: 70px;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,31 @@
+.speech-bubble {
+
+    position: relative;
+
+    background: white;
+
+    border: 1px solid #e5e5ea;
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    width: 200px;
+
+}
+
+.speech-bubble::before {
+
+    content: '';
+
+    position: absolute;
+
+    border: 10px solid transparent;
+
+    border-bottom: 10px solid white;
+
+    left: 20px;
+
+    top: -18px;
+
+}

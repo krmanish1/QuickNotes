@@ -1,0 +1,110 @@
+<div class="h-6"></div>
+<div class="mx-8 h-full">
+    <div class=" w-[100%]  mr-8 rounded-md ">
+        <div
+            class="flex font-bold text-sm gap-2 justify-between rounded-md text-[#161B25] items-center bg-white px-3 py-2">
+            <div class="">
+                <i class="bi bi-stickies text-xl mr-2"></i>
+                <span>Sticky Notes</span>
+            </div>
+            <div class="flex gap-2">
+                <div *ngIf="isColorVisible" class="flex gap-2">
+                    <div (click)="createNotes('EFE95E')"
+                        class=" rounded-full h-9 w-9 flex items-center justify-center cursor-pointer">
+                        <div class="h-6 w-6 bg-[#EFE95E] rounded-full"></div>
+                    </div>
+                    <div (click)="createNotes('36E767')"
+                        class=" rounded-full h-9 w-9 flex items-center justify-center cursor-pointer">
+                        <div class="h-6 w-6 bg-[#36E767] rounded-full"></div>
+                    </div>
+                    <div (click)="createNotes('6B97EE')"
+                        class=" rounded-full h-9 w-9 flex items-center justify-center cursor-pointer">
+                        <div class="h-6 w-6 bg-[#6B97EE] rounded-full"></div>
+                    </div>
+                    <div (click)="createNotes('F4A56C')"
+                        class=" rounded-full h-9 w-9 flex items-center justify-center cursor-pointer">
+                        <div class="h-6 w-6 bg-[#F4A56C] rounded-full"></div>
+                    </div>
+                    <div (click)="createNotes('F08787')"
+                        class=" rounded-full h-9 w-9 flex items-center justify-center cursor-pointer">
+                        <div class="h-6 w-6 bg-[#F08787] rounded-full"></div>
+                    </div>
+                    <div (click)="createNotes('2487C1')"
+                        class=" rounded-full h-9 w-9 flex items-center justify-center cursor-pointer">
+                        <div class="h-6 w-6 bg-[#2487C1] rounded-full"></div>
+                    </div>
+                </div>
+                <button (click)="selectColor()"
+                    class="bg-[#1755E7] rounded-full h-9 w-9 flex items-center justify-center text-white cursor-pointer">
+                    <!-- <i class="bi bi-file-earmark-plus-fill"></i> -->
+                    <i class="bi bi-plus-lg font-bold"></i>
+                </button>
+
+            </div>
+        </div>
+        <ng-template #notesList>
+
+            <div class="flex flex-row py-2 mt-3 gap-2 items-center justify-between text-[#07485B]">
+                <form [formGroup]="StickyNote" class="flex flex-row gap-9 flex-wrap w-[100%]">
+                    <ng-container *ngFor="let note of notesItem">
+                        <div class="p-3 w-[318px] bg-[#{{note.color}}] rounded-md" (click)="editNote(note._id)">
+                            <div class="flex justify-between items-start">
+                                <!-- <span 
+                                    class="font-bold">{{note.title}}</span> -->
+                                <input
+                                    class="outline-none w-full bg-transparent border-none active:border-none active:outline-none font-bold"
+                                    type="text" [formControlName]="note._id+'name'" id="title" name="title"
+                                    placeholder="Note title">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </div>
+                            <div class="mt-1">
+                                <div class="flex flex-col gap-1">
+                                    <!-- <span class="text-sm font-medium">{{note.description}}</span> -->
+                                    <textarea class="outline-none bg-transparent border-none" name="noteDescription"
+                                        [formControlName]="note._id+'desc'" id="noteDescription" cols="30"
+                                        placeholder="Start writing your note....."></textarea>
+                                </div>
+                                <div class="flex items-center gap-2 justify-between text-xs mt-8">
+                                    <div class="flex items-center gap-2">
+                                        <i class="bi bi-clock-fill"></i>
+                                        <span>{{note.createdAt | customDate}}</span>
+                                    </div>
+                                    <div class="text-[#07485B] font-bold flex flex-row ">
+                                        <div
+                                            class="hover:bg-[#f9f8bb] h-6 w-6 rounded-full flex items-center justify-center cursor-pointer">
+                                            <i class="bi bi-palette-fill"></i>
+
+                                        </div>
+                                        <div
+                                            class="hover:bg-[#f9f8bb] h-6 w-6 rounded-full flex items-center justify-center cursor-pointer">
+
+                                            <i class="bi bi-mic-fill"></i>
+                                        </div>
+                                        <div
+                                            class="hover:bg-[#f9f8bb] h-6 w-6 rounded-full flex items-center justify-center cursor-pointer">
+
+                                            <i class='bx bx-hash'></i>
+                                        </div>
+                                        <div (click)="deleteStickyNote(note._id)"
+                                            class="hover:bg-[#f9f8bb] h-6 w-6 rounded-full flex items-center justify-center cursor-pointer">
+
+                                            <i class="bi bi-trash3-fill"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </form>
+            </div>
+        </ng-template>
+
+
+        <div *ngIf="notesItem.length === 0; else notesList">
+            <p>No notes available. Create one.</p>
+            <!-- Add a button or link here to trigger the note creation process -->
+            <button (click)="createNotes('color')">Create Note</button>
+        </div>
+    </div>
+
+</div>

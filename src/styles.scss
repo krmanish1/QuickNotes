@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.modal-35 .modal-dialog {
+    max-width: 55rem !important;
+    margin: 4rem auto !important;
+}
+
+.modal-35 .modal-dialog>.modal-content {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 1rem !important;
+    border-width: 0rem;
+    background-color: #fff;
+    display: block;
+}
+
+
+body::-webkit-scrollbar,
+.scrollbar::-webkit-scrollbar,
+.scrollbarY::-webkit-scrollbar,
+.scrollbarX::-webkit-scrollbar {
+    width: 10px;
+    /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track,
+.scrollbar::-webkit-scrollbar-track,
+.scrollbarY::-webkit-scrollbar-track,
+.scrollbarX::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255);
+    /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb,
+.scrollbar::-webkit-scrollbar-thumb,
+.scrollbarY::-webkit-scrollbar-thumb,
+.scrollbarX::-webkit-scrollbar-thumb {
+    background-color: rgb(155, 155, 156);
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 3px solid rgb(255, 255, 255);
+    /* creates padding around scroll thumb */
+}

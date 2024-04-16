@@ -1,0 +1,24 @@
+<div class="h-6"></div>
+<div class="bg-white mx-8 px-3 py-1 rounded-md">
+    <span class="text-[#CFD5E2]">Operation</span>
+    <div class="w-48 py-2 flex justify-around items-center bg-white">
+        <div (click)="operation('undo')" [ngClass]="{'button-default': Undo != 0, 'button-disabled': Undo == 0}"
+            class="w-9 h-9 rounded-md flex items-center justify-center cursor-pointer text-[#1755E7] border-[#F0F2F5] border-2">
+            <button [disabled]='Undo === 0'><i class='bx bx-undo'></i> </button>
+        </div>
+        <div (click)="operation('redo')" [ngClass]="{'button-default': Redo != 0, 'button-disabled': Redo == 0}"
+            class="w-9 h-9 rounded-md flex items-center justify-center cursor-pointer text-[#1755E7] border-[#F0F2F5] border-2">
+            <button [disabled]='Redo === 0'><i class='bx bx-redo'></i> </button>
+        </div>
+        <div (click)="operation('save')"
+            [ngClass]="{'button-default': hasCanvasContent==true, 'button-disabled': hasCanvasContent==false}"
+            class="w-9 h-9 rounded-md flex items-center justify-center cursor-pointer text-[#1755E7] border-[#F0F2F5] border-2">
+            <button [disabled]='!hasCanvasContent'><i class='bx bxs-save'></i></button>
+        </div>
+        <div (click)="operation('download')"
+            [ngClass]="{'button-default': hasCanvasContent==true, 'button-disabled': hasCanvasContent==false}"
+            class="w-9 h-9 rounded-md flex items-center justify-center cursor-pointer text-[#1755E7] border-[#F0F2F5] border-2">
+            <button [disabled]='!hasCanvasContent'><i class="bi bi-download"></i></button>
+        </div>
+    </div>
+</div>

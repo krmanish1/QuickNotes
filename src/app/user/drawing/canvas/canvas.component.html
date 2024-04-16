@@ -1,0 +1,23 @@
+<div>
+    <div>
+        <app-tool-box (toolBoxOperation)="toolBoxOperation($event)"
+            [childData]="{ toolboxdata: { undo: undo, redo: redo ,hasCanvasContent:hasCanvasContent} }"></app-tool-box>
+    </div>
+    <div class="flex justify-center items-center w-[100%] gap-4">
+        <div>
+            <app-writting-tools (onSelectingWrittingTool)="onSelectingWrittingTool($event)"></app-writting-tools>
+
+        </div>
+        <div>
+            <!-- <canvas #canvas width="1000" height="600" style="border:1px solid"></canvas> -->
+            <canvas #canvas (mousedown)="startDrawing($event)" (mouseup)="finishDrawing()"
+                (mousemove)="draw($event)"></canvas>
+
+
+        </div>
+        <div>
+            <app-color-tools (onColorChange)="onColorChange($event)"></app-color-tools>
+
+        </div>
+    </div>
+</div>
