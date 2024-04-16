@@ -1,4 +1,4 @@
 export const environment = {
     development: false,
-    BASE_URL: "/",
+    BASE_URL: "http://localhost:3000/",
 };
