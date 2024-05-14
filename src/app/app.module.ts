@@ -9,7 +9,7 @@ import { DialogboxComponent } from './Dialog-box/dialogbox/dialogbox.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DialogboxComponent
+    DialogboxComponent,
   ],
   imports: [
     BrowserModule,

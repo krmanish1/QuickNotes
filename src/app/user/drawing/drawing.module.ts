@@ -7,6 +7,7 @@ import { ToolBoxComponent } from './tool-box/tool-box.component';
 import { DrawingComponent } from './drawing.component';
 import { FormsModule } from '@angular/forms';
 import { MainDrawingComponent } from './main-drawing/main-drawing.component';
+import { CanvasCurdFormComponent } from './canvas-curd-form/canvas-curd-form.component';
 
 
 
@@ -17,7 +18,8 @@ import { MainDrawingComponent } from './main-drawing/main-drawing.component';
     WrittingToolsComponent,
     ColorToolsComponent,
     ToolBoxComponent,
-    MainDrawingComponent
+    MainDrawingComponent,
+    CanvasCurdFormComponent
   ],
   imports: [
     CommonModule,

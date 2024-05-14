@@ -15,7 +15,7 @@ export class DialogboxService {
     btnOkText: string = 'OK',
     btnCancelText: string = 'Cancel',
     dialogSize: 'sm' | 'lg' = 'sm',
-    type: 'success' | 'error' | 'delete' | 'Warning' | 'info' = 'success'): Promise<boolean> {
+    type: 'success' | 'error' | 'delete' | 'creation' | 'Warning' | 'info' = 'success'): Promise<boolean> {
     const modalRef = this.modalService.open(DialogboxComponent, { size: dialogSize });
     modalRef.componentInstance.title = title;
     modalRef.componentInstance.message = message;
