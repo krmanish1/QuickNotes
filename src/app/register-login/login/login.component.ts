@@ -91,7 +91,6 @@ export class LoginComponent {
           this.register_login_services.login(response.user.token); // Call the login method with the token
           this.modalClose();
           this.router.navigate(['/user/dashboard']); // Replace '/dashboard' with the actual route to your dashboard
-
         }, (error) => {
           console.log(error);
           this.confirmationDialogService.confirm('Error',

@@ -98,9 +98,7 @@ export class RegisterComponent implements OnInit {
           this.register_login_services.login(response.user.token); // Call the login method with the token
           this.modalClose();
           this.router.navigateByUrl('user/dashboard');
-          console.log('HTTP Post successful:', response);
         }, (error) => {
-          console.log("error:-", error);
           this.confirmationDialogService.confirm('Error',
             error.message,
             'OK',
