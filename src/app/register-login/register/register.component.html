@@ -64,11 +64,11 @@
             </div>
             <div class="flex flex-col items-center">
                 <div class="w-full flex-1 mt-6">
-                    <form method="POST" action="#">
+                    <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
                         <div>
                             <label for="email" class="block text-sm font-medium leading-5  text-gray-700">Name</label>
                             <div class="mt-1 relative rounded-md shadow-sm">
-                                <input id="name" name="name" placeholder="John Doe" type="text" required="" value=""
+                                <input id="name" name="name" placeholder="John Doe" type="text" formControlName="name"
                                     class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                                 <div
                                     class="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -88,8 +88,8 @@
                                 Email address
                             </label>
                             <div class="mt-1 relative rounded-md shadow-sm">
-                                <input id="email" name="email" placeholder="user@example.com" type="email" required=""
-                                    value="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5
+                                <input id="email" name="email" placeholder="user@example.com" type="email"
+                                    formControlName="email" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5
                             ">
                                 <div
                                     class="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -107,19 +107,18 @@
                                 Password
                             </label>
                             <div class="mt-1 rounded-md shadow-sm">
-                                <input id="password" name="password" type="password" required=""
+                                <input id="password" name="password" type="password" formControlName="password"
                                     class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                             </div>
                         </div>
 
                         <div class="mt-6">
-                            <label for="password_confirmation"
-                                class="block text-sm font-medium leading-5 text-gray-700">
+                            <label for="confirmPassword" class="block text-sm font-medium leading-5 text-gray-700">
                                 Confirm Password
                             </label>
                             <div class="mt-1 rounded-md shadow-sm">
-                                <input id="password_confirmation" name="password_confirmation" type="password"
-                                    required=""
+                                <input id="confirmPassword" name="confirmPassword" type="password"
+                                    formControlName="confirmPassword"
                                     class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                             </div>
                         </div>

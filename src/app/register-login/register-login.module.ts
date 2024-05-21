@@ -4,18 +4,27 @@ import { RegisterLoginComponent } from './register-login.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterLoginRoutingModule } from './register-login--routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from '../cors/service/api.service';
 
 
 
 @NgModule({
   declarations: [
     RegisterLoginComponent,
-    RegisterComponent,
-    LoginComponent
+    // RegisterComponent,
+    // LoginComponent
   ],
   imports: [
     CommonModule,
-    RegisterLoginRoutingModule
-  ]
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RegisterLoginRoutingModule,
+  ],
+  providers: [
+    ApiService, // Ensure ApiService is provided here if it's not already
+  ],
 })
 export class RegisterLoginModule { }

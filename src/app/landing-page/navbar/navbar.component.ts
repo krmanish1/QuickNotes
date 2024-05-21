@@ -119,6 +119,8 @@ export class NavbarComponent implements OnInit {
 
   // Inside your component class
   openRegister() {
+    console.log("registeropen");
+
     this.dataService.modalInstance = this.serviceModal.open(
       RegisterComponent,
       {
