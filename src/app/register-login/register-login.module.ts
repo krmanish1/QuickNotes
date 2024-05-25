@@ -7,12 +7,14 @@ import { RegisterLoginRoutingModule } from './register-login--routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../cors/service/api.service';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 
 @NgModule({
   declarations: [
     RegisterLoginComponent,
+    // ForgotPasswordComponent,
     // RegisterComponent,
     // LoginComponent
   ],
