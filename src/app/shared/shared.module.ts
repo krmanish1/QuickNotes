@@ -12,9 +12,11 @@ import { ColorSelectionComponent } from './color-selection/color-selection.compo
   declarations: [
     PageNotFoundComponent,
     ColorSelectionComponent,
+
   ],
   imports: [
-    CommonModule
+    CommonModule,
+
   ],
   exports: [
     PageNotFoundComponent,

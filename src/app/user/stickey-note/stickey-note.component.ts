@@ -79,7 +79,7 @@ export class StickeyNoteComponent implements OnInit {
     // });
 
     this.StickyNote.valueChanges.pipe(
-      debounceTime(1000) // Debounce time in milliseconds
+      debounceTime(5000) // Debounce time in milliseconds
     ).subscribe(value => {
       if (this.currentlyEditingNoteId) {
         this.updateNote(this.currentlyEditingNoteId, value);

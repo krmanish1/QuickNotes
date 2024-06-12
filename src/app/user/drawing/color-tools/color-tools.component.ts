@@ -8,8 +8,8 @@ import { Component, Output, EventEmitter } from '@angular/core';
 export class ColorToolsComponent {
   @Output() onColorChange = new EventEmitter<string>();
 
-  colors = ['#000000', '#ff007f', '#c8ff00', '#0dff00', '#00a6ff', '#7700ff', '#ff002b', '#ff6200'];
-  selectedColor: string = '#000000'// Default selected color
+  colors = ['#030B17', '#36E767', '#6B97EE', '#F08787', '#2487C1', '#9087E5', '#4CC1A8', '#4CB0D9'];
+  selectedColor: string = '#030B17'// Default selected color
 
   selectColor(color: string) {
     this.selectedColor = color;

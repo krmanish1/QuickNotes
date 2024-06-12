@@ -1,47 +1,57 @@
-<div>
+<div class="bg-white dark:!bg-[#303030] text-center pt-3">
     <span class="text-[#CFD5E2]">
         Tools
     </span>
-    <div class="flex flex-col gap-2 bg-white p-4 h-[100%]">
+    <div class="flex flex-col gap-2 bg-white dark:!bg-[#303030]  p-4 h-[100%]">
         <div (click)="selectTool('pen')"
-            class="w-10 h-10 hover:hover:bg-[#FCECF5] hover:text-[#F5527A] rounded-md flex items-center justify-center cursor-pointer"
-            [ngClass]="{'selectedToolsClass': selectedTool==='pen'}">
+            class="w-10 h-10 text-[#1755E7] border-[#F0F2F5] dark:border-[#202020] hover:hover:bg-[#F0F2F5] dark:hover:bg-[#202020]  border-2 rounded-md flex items-center justify-center cursor-pointer "
+            [ngClass]="{'selectedToolsClass': selectedTool==='pen','dark:!bg-[#202020]': selectedTool==='pen'}"
+            placement="end" ngbTooltip="Pen" tooltipClass="toottipclass" container="body">
 
             <button><i class="bi bi-pen-fill"></i></button>
         </div>
         <div (click)="selectTool('pencil')"
-            class="w-10 h-10 hover:hover:bg-[#FCECF5] hover:text-[#F5527A] rounded-md flex items-center justify-center cursor-pointer"
-            [ngClass]="{'selectedToolsClass': selectedTool==='pencil'}">
+            class="w-10 h-10 text-[#1755E7] border-[#F0F2F5] dark:border-[#202020] hover:hover:bg-[#F0F2F5] dark:hover:bg-[#202020] border-2 rounded-md flex items-center justify-center cursor-pointer"
+            [ngClass]="{'selectedToolsClass': selectedTool==='pencil','dark:!bg-[#202020]': selectedTool==='pencil'}"
+            placement="end" ngbTooltip="Pencil" tooltipClass="toottipclass" container="body">
 
             <button><i class="bi bi-pencil-fill"></i></button>
         </div>
         <div (click)="selectTool('marker')"
-            class="w-10 h-10 hover:hover:bg-[#FCECF5] hover:text-[#F5527A] rounded-md flex items-center justify-center cursor-pointer"
-            [ngClass]="{'selectedToolsClass': selectedTool==='marker'}">
+            class="w-10 h-10 text-[#1755E7] border-[#F0F2F5] dark:border-[#202020] hover:hover:bg-[#F0F2F5] dark:hover:bg-[#202020] border-2 rounded-md flex items-center justify-center cursor-pointer"
+            [ngClass]="{'selectedToolsClass': selectedTool==='marker','dark:!bg-[#202020]': selectedTool==='marker'}"
+            placement="end" ngbTooltip="Marker" tooltipClass="toottipclass" container="body">
 
             <button><i class="bi bi-marker-tip"></i></button>
         </div>
         <div (click)="selectTool('highlighter')"
-            class="w-10 h-10 hover:hover:bg-[#FCECF5] hover:text-[#F5527A] rounded-md flex items-center justify-center cursor-pointer"
-            [ngClass]="{'selectedToolsClass': selectedTool==='highlighter'}">
+            class="w-10 h-10 text-[#1755E7] border-[#F0F2F5] dark:border-[#202020] hover:hover:bg-[#F0F2F5] dark:hover:bg-[#202020] border-2 rounded-md flex items-center justify-center cursor-pointer"
+            [ngClass]="{'selectedToolsClass': selectedTool==='highlighter','dark:!bg-[#202020]': selectedTool==='highlighter'}"
+            placement="end" ngbTooltip="Highlighter" tooltipClass="toottipclass" container="body">
 
             <button><i class="bi bi-highlighter"></i></button>
         </div>
         <div (click)="selectTool('brush')"
-            class="w-10 h-10 hover:hover:bg-[#FCECF5] hover:text-[#F5527A] rounded-md flex items-center justify-center cursor-pointer"
-            [ngClass]="{'selectedToolsClass': selectedTool==='brush'}">
+            class="w-10 h-10 text-[#1755E7] border-[#F0F2F5] dark:border-[#202020] hover:hover:bg-[#F0F2F5] dark:hover:bg-[#202020] border-2 rounded-md flex items-center justify-center cursor-pointer"
+            [ngClass]="{'selectedToolsClass': selectedTool==='brush','dark:!bg-[#202020]': selectedTool==='brush'}"
+            placement="end" ngbTooltip="Brush" tooltipClass="toottipclass" container="body">
 
             <button><i class="bi bi-brush-fill"></i></button>
         </div>
+        <span class="text-[#CFD5E2]">
+            Clean
+        </span>
         <div (click)="selectTool('eraser')"
-            class="w-10 h-10 hover:hover:bg-[#FCECF5] hover:text-[#F5527A] rounded-md flex items-center justify-center cursor-pointer"
-            [ngClass]="{'selectedToolsClass': selectedTool==='eraser'}">
+            class="w-10 h-10 text-[#1755E7] border-[#F0F2F5] dark:border-[#202020] hover:hover:bg-[#F0F2F5] dark:hover:bg-[#202020] border-2 rounded-md flex items-center justify-center cursor-pointer"
+            [ngClass]="{'selectedToolsClass': selectedTool==='eraser','dark:!bg-[#202020]': selectedTool === 'eraser'}"
+            placement="end" ngbTooltip="Eraser" tooltipClass="toottipclass" container="body">
 
             <button><i class="bi bi-eraser-fill"></i></button>
         </div>
         <div (click)="selectTool('eraserAll')"
-            class="w-10 h-10 hover:hover:bg-[#FCECF5] hover:text-[#F5527A] rounded-md flex items-center justify-center cursor-pointer"
-            [ngClass]="{'selectedToolsClass': selectedTool==='eraserAll'}">
+            class="w-10 h-10 text-[#1755E7] border-[#F0F2F5] dark:border-[#202020] hover:hover:bg-[#F0F2F5] dark:hover:bg-[#202020] border-2 rounded-md flex items-center justify-center cursor-pointer"
+            [ngClass]="{'selectedToolsClass': selectedTool==='eraserAll','dark:!bg-[#202020]': selectedTool==='eraserAll'}"
+            placement="end" ngbTooltip="Clear All" tooltipClass="toottipclass" container="body">
 
             <button><i class='bx bxs-eraser'></i></button>
         </div>

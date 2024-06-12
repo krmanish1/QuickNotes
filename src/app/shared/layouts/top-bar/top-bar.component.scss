@@ -45,6 +45,15 @@
 .top-bar-options {
     display: flex;
     gap: 20px;
+
+    .message,
+    .notification {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        // background-color: #F0F2F5;
+        color: #1755E7;
+    }
 }
 
 .top-bar-options div {
@@ -78,8 +87,8 @@
 
     .action .profile {
         position: relative;
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
         overflow: hidden;
         cursor: pointer;

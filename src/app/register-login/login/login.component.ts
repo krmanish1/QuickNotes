@@ -9,6 +9,7 @@ import { environment } from '../../../environments/environment.development';
 import { RegisterLoginService } from '../service/register-login.service';
 import { DialogboxService } from '../../Dialog-box/services/dialogbox.service';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
+import { SharedService } from '../../shared/services/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,7 @@ export class LoginComponent {
     private apiService: ApiService,
     private register_login_services: RegisterLoginService,
     private confirmationDialogService: DialogboxService,
+    private sharedService: SharedService,
     private router: Router, // Inject the Router service
 
 
@@ -44,7 +46,8 @@ export class LoginComponent {
       {
         windowClass: "modal-35",
         backdrop: 'static', // Disables closing the modal by clicking the backdrop
-        keyboard: false // Disables closing the modal by pressing the ESC key
+        keyboard: false, // Disables closing the modal by pressing the ESC key
+        centered: true
       }
     );
 
@@ -92,6 +95,8 @@ export class LoginComponent {
       this.apiService.postCall(base_url, this.loginForm.value).subscribe(
         (response) => {
           this.register_login_services.login(response.user.token); // Call the login method with the token
+          this.sharedService.setUser(response.user); // Store the user data
+
           this.modalClose();
           this.router.navigate(['/user/dashboard']); // Replace '/dashboard' with the actual route to your dashboard
           this.confirmationDialogService.confirm('Success',

@@ -3,6 +3,7 @@ import { ChangeDetectorRef, Component, ElementRef, Inject, OnInit, PLATFORM_ID, 
 import { DataService } from '../../cors/service/data.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from '../../register-login/register/register.component';
+import { LoginComponent } from '../../register-login/login/login.component';
 
 @Component({
   selector: 'app-navbar',
@@ -118,16 +119,17 @@ export class NavbarComponent implements OnInit {
 
 
   // Inside your component class
-  openRegister() {
+  openLogin() {
     console.log("registeropen");
 
     this.dataService.modalInstance = this.serviceModal.open(
-      RegisterComponent,
+      LoginComponent,
       {
         windowClass: "modal-35",
         backdrop: 'static', // Disables closing the modal by clicking the backdrop
-        keyboard: false // Disables closing the modal by pressing the ESC key
-      }
+        keyboard: false, // Disables closing the modal by pressing the ESC key
+        centered: true
+      },
     );
 
     this.dataService.modalInstance.result.then(

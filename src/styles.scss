@@ -55,3 +55,83 @@ body::-webkit-scrollbar-thumb,
     border: 3px solid rgb(255, 255, 255);
     /* creates padding around scroll thumb */
 }
+
+
+textarea::-webkit-scrollbar,
+.scrollbar::-webkit-scrollbar,
+.scrollbarY::-webkit-scrollbar,
+.scrollbarX::-webkit-scrollbar {
+    width: 10px;
+    /* width of the entire scrollbar */
+}
+
+textarea::-webkit-scrollbar-track,
+.scrollbar::-webkit-scrollbar-track,
+.scrollbarY::-webkit-scrollbar-track,
+.scrollbarX::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255);
+    /* color of the tracking area */
+}
+
+textarea::-webkit-scrollbar-thumb,
+.scrollbar::-webkit-scrollbar-thumb,
+.scrollbarY::-webkit-scrollbar-thumb,
+.scrollbarX::-webkit-scrollbar-thumb {
+    background-color: rgb(155, 155, 156);
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 3px solid rgb(255, 255, 255);
+    /* creates padding around scroll thumb */
+}
+
+
+
+
+
+// tooltip
+.toottipclass .tooltip-inner {
+    background-color: #151515;
+    font-size: 100%;
+}
+
+.toottipclass.bs-tooltip-end .tooltip-arrow::before {
+    border-right-color: #151515;
+}
+
+.toottipclass.bs-tooltip-start .tooltip-arrow::before {
+    border-left-color: #151515;
+}
+
+.toottipclass.bs-tooltip-top .tooltip-arrow::before {
+    border-top-color: #151515;
+}
+
+.toottipclass.bs-tooltip-bottom .tooltip-arrow::before {
+    border-bottom-color: #151515;
+}
+
+
+
+
+// ckeditor
+
+.ck-reset_all :not(.ck-reset_all-excluded *),
+.ck.ck-reset,
+.ck.ck-reset_all {
+    background: transparent;
+    border: 0;
+    box-sizing: border-box;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    position: static;
+    text-decoration: none;
+    transition: none;
+    vertical-align: middle;
+    width: 127%;
+    word-wrap: break-word;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

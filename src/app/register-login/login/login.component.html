@@ -1,18 +1,19 @@
 <span id="sp_close_icon" role="closePopup" ngbTooltip="Close" container="body" name="close_icon"
-    class="absolute top-0 right-0 m-2 text-2xl bg-gray-200 rounded-[50%] h-8 w-8 text-center cursor-pointer hover:bg-gray-300"
+    class="absolute top-0 right-0 m-2 text-2xl bg-gray-200 dark:bg-[#101010] dark:text-gray-300 rounded-[50%] h-8 w-8 text-center cursor-pointer hover:bg-gray-300"
     (click)="modalClose()" aria-label="closeIicon">
 
     <i class="bi bi-x"></i>
 </span>
-<div class=" bg-gray-100 text-gray-900 flex justify-center">
-    <div class="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+<div class=" bg-gray-100 dark:!bg-[#202020] text-gray-900 flex justify-center">
+    <div
+        class="max-w-screen-xl m-0 sm:m-10 bg-white dark:!bg-[#202020] shadow sm:rounded-lg flex justify-center flex-1">
 
         <div class="flex-1 bg-green-100 text-center hidden lg:flex">
             <div class="m-12 xl:m-16 bg-contain bg-center bg-no-repeat">
             </div>
         </div>
 
-        <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
+        <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12 ">
             <div class="flex gap-2 justify-center items-center font-bold">
                 <svg viewBox="0 0 348 224" fill="currentColor" class="h-8 w-8 text-[#1755E7]"
                     xmlns="http://www.w3.org/2000/svg">
@@ -60,20 +61,22 @@
                             <stop offset="1" stop-color="#FF512A" />
                         </linearGradient>
                     </defs>
-                </svg> Quick<span class="text-[#1755E7]">Notes</span>
+                </svg> <span class="dark:text-gray-300">Quick</span><span class="text-[#1755E7]">Notes</span>
             </div>
             <div class="flex flex-col items-center">
                 <div class="w-full flex-1 mt-6">
                     <form [formGroup]="loginForm" (ngSubmit)="logIn()">
 
                         <div class="mt-6">
-                            <label for="email" class="block text-sm font-medium leading-5  text-gray-700">
+                            <label for="email"
+                                class="block text-sm font-medium leading-5  text-gray-700 dark:text-gray-500">
                                 Email address
                             </label>
                             <div class="mt-1 relative rounded-md shadow-sm">
                                 <input id="email" name="email" placeholder="user@example.com" type="email"
-                                    formControlName="email" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5
-                            " [class.input-error]="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+                                    formControlName="email"
+                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 dark:!border-[#383838] rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-blue dark:bg-[#101010] dark:text-gray-300 dark:placeholder-gray-500 focus:border-blue-300 dark:focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                    [class.input-error]="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
                                 <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched"
                                     class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                                     <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
@@ -93,12 +96,13 @@
                         </div>
 
                         <div class="mt-6">
-                            <label for="password" class="block text-sm font-medium leading-5 text-gray-700">
+                            <label for="password"
+                                class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-500">
                                 Password
                             </label>
                             <div class="mt-1 rounded-md shadow-sm">
                                 <input id="password" name="password" type="password" formControlName="password"
-                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 dark:!border-[#383838] rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-blue dark:bg-[#101010] dark:text-gray-300 dark:placeholder-gray-500 focus:border-blue-300 dark:focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
                                     [class.input-error]="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
                             </div>
                             <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched"
@@ -121,7 +125,7 @@
                         <div class="mt-6">
                             <span class="block w-full rounded-md shadow-sm">
                                 <button type="submit"
-                                    class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-[#1755E7] focus:outline-none focus:border-blue-700 focus:shadow-outline-indigo active:bg-blue-700 transition duration-150 ease-in-out">
+                                    class="w-full flex justify-center py-2 px-4 border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-[#1755E7] focus:outline-none focus:border-blue-700 dark:border-blue-700 dark:outline-blue-700 focus:shadow-outline-indigo active:bg-blue-700 transition duration-150 ease-in-out">
                                     Sign In
                                 </button>
                             </span>

@@ -8,6 +8,7 @@ import { DrawingComponent } from './drawing.component';
 import { FormsModule } from '@angular/forms';
 import { MainDrawingComponent } from './main-drawing/main-drawing.component';
 import { CanvasCurdFormComponent } from './canvas-curd-form/canvas-curd-form.component';
+import { NgbModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -23,7 +24,9 @@ import { CanvasCurdFormComponent } from './canvas-curd-form/canvas-curd-form.com
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    NgbTooltipModule
   ]
 })
 export class DrawingModule { }

@@ -1,8 +1,8 @@
 .main-body {
     position: relative;
-    background: #F0F2F5;
+    // background: #F0F2F5;
     // background: $secondary-bgcolor;
-    height: 100vh;
+    height: fit-content;
     left: 260px;
     width: calc(100% - 260px);
     transition: all 0.5s ease;

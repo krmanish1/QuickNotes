@@ -15,6 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../cors/service/api.service';
 import { CustomDatePipe } from '../cors/pipe/custom-date.pipe';
 import { DrawingModule } from './drawing/drawing.module';
+import { TimeDifferencePipe } from '../cors/pipe/timedifference.pipe';
+import { NgbModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { JournalModule } from './journal/journal.module';
 
 
 
@@ -28,7 +31,8 @@ import { DrawingModule } from './drawing/drawing.module';
     LeftMenuComponent,
     TopBarComponent,
     RightBarComponent,
-    CustomDatePipe
+    CustomDatePipe,
+    TimeDifferencePipe
 
   ],
   imports: [
@@ -36,7 +40,10 @@ import { DrawingModule } from './drawing/drawing.module';
     UserRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    DrawingModule
+    DrawingModule,
+    JournalModule,
+    NgbModule,
+    NgbTooltipModule
 
   ],
   providers: [

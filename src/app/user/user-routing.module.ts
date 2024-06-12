@@ -8,6 +8,7 @@ import { NotesComponent } from './notes/notes.component';
 import { HandwrittenNotesComponent } from './handwritten-notes/handwritten-notes.component';
 import { DrawingComponent } from './drawing/drawing.component';
 import { CanvasComponent } from './drawing/canvas/canvas.component';
+import { JournalComponent } from './journal/journal.component';
 
 const routes: Routes = [
   {
@@ -21,15 +22,16 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        component: UserDashboardComponent
+        component: UserDashboardComponent,
+
       },
       {
         path: 'stickeynote',
         component: StickeyNoteComponent
       },
       {
-        path: 'note',
-        component: NotesComponent
+        path: 'journal',
+        component: JournalComponent
       },
       {
         path: 'handwritten-note',

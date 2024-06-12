@@ -1,3 +1,10 @@
 .input-error {
     border-color: red !important;
 }
+
+/* Assuming you have a global stylesheet where you can add this */
+input[type="email"]::placeholder-shown,
+input[type="email"]:autofill::placeholder-shown {
+    background-color: #101010;
+    /* Dark background color */
+}

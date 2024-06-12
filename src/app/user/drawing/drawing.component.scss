@@ -43,6 +43,22 @@
     /* Ensures the text is above the background overlay */
 }
 
+.canvas-img:hover .canvas_card_hover_darkmode {
+    color: #1755E7;
+    background-color: #202020;
+    border-radius: 4px;
+    width: 60%;
+    position: absolute;
+    top: 16px;
+    /* Adjust as needed */
+    left: 16px;
+    /* Adjust as needed */
+    // color: #F0F2F5;
+    /* Ensures the text color is visible against the background */
+    z-index: 2;
+    /* Ensures the text is above the background overlay */
+}
+
 .canvas-img .canvas-operation {
     display: none;
 }

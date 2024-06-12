@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register-login/register/register.component';
 import { LoginComponent } from './register-login/login/login.component';
 import { ForgotPasswordComponent } from './register-login/forgot-password/forgot-password.component';
+import { NgbModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,13 +17,16 @@ import { ForgotPasswordComponent } from './register-login/forgot-password/forgot
     RegisterComponent,
     LoginComponent,
     DialogboxComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgbModule,
+    NgbTooltipModule
 
   ],
   providers: [

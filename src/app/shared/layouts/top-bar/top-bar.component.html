@@ -1,15 +1,15 @@
 <div class="tobar-content">
-    <div class="top-bar shadow-md">
+    <div class="top-bar shadow-md dark:bg-[#181818] dark:border-b-2 dark:border-[#383838]">
         <div class="top-bar-options">
-            <div class="message">
-                <i class='bx bx-message'></i>
+            <div class="message dark:bg-[#303030]">
+                <i class="bi bi-chat-dots"></i>
             </div>
 
             <!-- notification -->
 
             <!-- end notification -->
-            <div class="notification">
-                <i class='bx bx-bell'></i>
+            <div class="notification bg-[#F0F2F5] dark:bg-[#303030]">
+                <i class="bi bi-bell"></i>
             </div>
 
 
@@ -40,8 +40,8 @@
                             <i class="bi bi-gear"></i><a href="#">Setting</a>
                         </li>
                         <li><i class="bi bi-question-octagon"></i><a href="#">Help</a></li>
-                        <li>
-                            <i class="bi bi-box-arrow-left"></i><a href="#">Logout</a>
+                        <li (click)="logout()">
+                            <i class="bi bi-box-arrow-left"></i><a>Logout</a>
                         </li>
                     </ul>
                 </div>

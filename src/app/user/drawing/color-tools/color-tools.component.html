@@ -1,9 +1,12 @@
-<div class="color-box flex flex-col gap-4 bg-white p-4 h-[100%]">
+<div class="color-box flex flex-col items-center gap-4 bg-white dark:!bg-[#303030] p-4 h-[100%]">
+    <span class="text-[#CFD5E2]">
+        Color
+    </span>
 
     <div *ngFor="let color of colors" class="w-6 h-6 rounded-full cursor-pointer" [style.background-color]="color"
         [class.colour-selection]="color === selectedColor" (click)="selectColor(color)">
     </div>
-    <i class="bi bi-palette-fill cursor-pointer text-2xl " (click)="colorInput.click()"></i>
+    <i class="bi bi-palette-fill cursor-pointer text-2xl dark:text-gray-200" (click)="colorInput.click()"></i>
     <input #colorInput class="w-6 h-6 cursor-pointer  hidden-input" type="color" [(ngModel)]="selectedColor"
         (change)="onColorChange.emit(selectedColor)">
 

@@ -1,7 +1,8 @@
 import { Component, OnInit, PLATFORM_ID, Inject, ElementRef, ViewChild } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { DrawingService } from '../services/drawing.service';
-import { Subscription } from 'rxjs';
+import rough from 'roughjs';
+
 
 @Component({
   selector: 'app-canvas',
@@ -21,7 +22,7 @@ export class CanvasComponent implements OnInit {
   isDrawing = false;
   toolWidth = 1;
   selectedTool: string = 'pen'
-  selectedColor: string = "#000000"; // This will hold the color selected in the child component
+  selectedColor: string = "#030B17"; // This will hold the color selected in the child component
   hasCanvasContent: boolean = false;
 
 
@@ -108,8 +109,12 @@ export class CanvasComponent implements OnInit {
     else if (this.selectedTool === "eraser") {
       this.context.lineWidth = 20; // passing brushSize as line width
       this.toolWidth = this.context.lineWidth
-      this.context.strokeStyle = "#fff";
-      this.context.fillStyle = this.selectedTool === "eraser" ? "#fff" : this.selectedTool; // passing selectedColor as fill style
+      // this.context.strokeStyle = this.isDarkMode() ? '#202020' : '#fff';
+      this.context.strokeStyle = '#fff';
+      // const backgroundColor = this.isDarkMode() ? '#202020' : '#fff'; // Adjust colors as needed
+
+      this.context.fillStyle = '#fff';
+      this.context.fillStyle = this.selectedTool === "eraser" && this.isDarkMode() ? "backgroundColor" : this.selectedTool; // passing selectedColor as fill style
     }
     else if (this.selectedTool === "brush") {
       this.context.lineWidth = 10; // passing brushSize as line width
@@ -128,9 +133,9 @@ export class CanvasComponent implements OnInit {
   }
 
   startDrawing(event: MouseEvent) {
-    const offsetX = event.offsetX;
-    const offsetY = event.offsetY;
-    this.context.fillRect(offsetX, offsetY, 1, 1);
+    const rect = this.canvas.nativeElement.getBoundingClientRect();
+    const offsetX = (event.clientX - rect.left) / 1.5;  // Adjust for scaling
+    const offsetY = (event.clientY - rect.top) / 1.5;   // Adjust for scaling
 
 
     this.context.beginPath();
@@ -152,9 +157,9 @@ export class CanvasComponent implements OnInit {
     if (!this.isDrawing) {
       return;
     }
-    const offsetX = event.offsetX;
-    const offsetY = event.offsetY;
-    this.context.fillRect(offsetX, offsetY, 1, 1);
+    const offsetX = event.offsetX / 1.5;  // Adjust for scaling
+    const offsetY = event.offsetY / 1.5;  // Adjust for scaling
+    // this.context.fillRect(offsetX, offsetY, 1, 1);
 
     this.context.lineTo(offsetX, offsetY);
     this.context.stroke();
@@ -169,7 +174,9 @@ export class CanvasComponent implements OnInit {
     if (this.undo > 0) {
       const data = this.undoSteps[this.undo];
       this.context.strokeStyle = '#fff';
-      this.context.fillStyle = '#fff'
+      // const backgroundColor = this.isDarkMode() ? '#202020' : '#fff'; // Adjust colors as needed
+
+      this.context.fillStyle = '#fff';
       this.context.beginPath();
       this.context.lineWidth = this.toolWidth;
       this.context.moveTo(data[0].offsetX, data[0].offsetY);
@@ -232,7 +239,10 @@ export class CanvasComponent implements OnInit {
 
   setCanvasBackground = () => {
     // setting whole canvas background to white, so the downloaded img background will be white
-    this.context.fillStyle = "#fff";
+    // const backgroundColor = this.isDarkMode() ? '#202020' : '#fff'; // Adjust colors as needed
+
+    // this.context.fillStyle = this.isDarkMode() ? '#202020' : '#fff';
+    this.context.fillStyle = '#fff';
     this.context.fillRect(0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height);
     // this.context.fillStyle = this.selectedColor; // setting fillstyle back to the selectedColor, it'll be the brush color
   }
@@ -255,5 +265,9 @@ export class CanvasComponent implements OnInit {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  }
+
+  isDarkMode(): boolean {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
 }

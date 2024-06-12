@@ -1,5 +1,6 @@
-<div class="sidebar bg-white" [ngClass]="{'close': !isMenuExpanded}">
-    <div class="logo-details">
+<div class="sidebar bg-white dark:bg-[#181818] dark:border-r-2 dark:border-[#383838]"
+    [ngClass]="{'close': !isMenuExpanded}">
+    <div class="logo-details dark:bg-[#181818]">
 
         <!-- <svg width="96" height="89" viewBox="0 0 96 89" fill="currentColor" class="h-6"
             xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +59,7 @@
 
         <span class="logo_name text-[#1755E7]">QuickNotes</span>
     </div>
-    <span class="toggle-button ">
+    <span class="toggle-button bg-[#F0F2F5] dark:!bg-[#303030]">
         <span class="toggle-menu" (click)="toggleMenu()">
             <i *ngIf="!isMenuExpanded" class='bx bxs-chevron-right'></i>
             <i *ngIf="isMenuExpanded" class='bx bxs-chevron-left'></i>
@@ -66,51 +67,93 @@
     </span>
 
     <!-- admin dashboard items -->
-    <ul class="nav-links">
-        <li>
-            <a [routerLink]="['/user/dashboard']" routerLinkActive="active" href="javascript:void(0)">
-                <i class='bx bx-grid-alt'></i>
-                <span class="link_name font-bold">Dashboard</span>
-            </a>
-            <ul class="sub-menu blank">
-                <li><a class="link_name" href="/user/dashboard">Dashboard</a></li>
-            </ul>
-        </li>
-        <li>
-            <a [routerLink]="['/user/stickeynote']" routerLinkActive="active" href="javascript:void(0)">
-                <i class="bi bi-stickies"></i>
-                <span class="link_name">Sticky Notes</span>
-            </a>
-            <ul class="sub-menu blank">
-                <li><a class="link_name" href="/user/stickeynote">Sticky Notes</a></li>
-            </ul>
-        </li>
-        <li>
-            <a [routerLink]="['/user/note']" routerLinkActive="active" href="javascript:void(0)">
-                <i class="bi bi-journal-richtext"></i>
-                <span class="link_name">Journal Richtext</span>
-            </a>
-            <ul class="sub-menu blank">
-                <li><a class="link_name" href="/user/note">Journal Richtext</a></li>
-            </ul>
-        </li>
-        <li>
-            <a [routerLink]="['/user/handwritten-note']" routerLinkActive="active" href="javascript:void(0)">
-                <i class="bi bi-pen"></i>
-                <span class="link_name">Handwritten Note</span>
-            </a>
-            <ul class="sub-menu blank">
-                <li><a class="link_name" href="/user/handwritten-note">Handwritten Note</a></li>
-            </ul>
-        </li>
-        <li>
-            <a [routerLink]="['/user/drawing']" routerLinkActive="active" href="javascript:void(0)">
-                <i class="bi bi-brush"></i>
-                <span class="link_name">Drawing</span>
-            </a>
-            <ul class="sub-menu blank">
-                <li><a class="link_name" href="/user/drawing">Drawing</a></li>
-            </ul>
-        </li>
-    </ul>
+    <div class="flex justify-between flex-col dark:bg-[#181818]">
+        <ul class="nav-links">
+            <li class="dark:hover:!bg-[#303030] ">
+                <a [routerLink]="['/user/dashboard']" routerLinkActive="active dark:!bg-[#303030]"
+                    href="javascript:void(0)" placement="end" ngbTooltip="Dashboard" tooltipClass="toottipclass"
+                    container="body">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="link_name font-bold">Dashboard</span>
+                </a>
+
+            </li>
+            <li class="dark:hover:!bg-[#303030]">
+                <a [routerLink]="['/user/stickeynote']" routerLinkActive="active dark:!bg-[#303030]"
+                    href="javascript:void(0)" placement="end" ngbTooltip="Sticky Notes" tooltipClass="toottipclass"
+                    container="body">
+                    <i class="bi bi-stickies"></i>
+                    <span class="link_name">Sticky Notes</span>
+                </a>
+
+            </li>
+            <li class="dark:hover:!bg-[#303030]">
+                <a [routerLink]="['/user/journal']" routerLinkActive="active dark:!bg-[#303030]"
+                    href="javascript:void(0)" placement="end" ngbTooltip="Journal Richtext" tooltipClass="toottipclass"
+                    container="body">
+                    <i class="bi bi-journal-richtext"></i>
+                    <span class="link_name">Journal Richtext</span>
+                </a>
+
+            </li>
+            <li class="dark:hover:!bg-[#303030]">
+                <a [routerLink]="['/user/handwritten-note']" routerLinkActive="active dark:!bg-[#303030]"
+                    href="javascript:void(0)" placement="end" ngbTooltip="Handwritten Note" tooltipClass="toottipclass"
+                    container="body">
+                    <i class="bi bi-pen"></i>
+                    <span class="link_name">Handwritten Note</span>
+                </a>
+
+            </li>
+            <li class="dark:hover:!bg-[#303030]">
+                <a [routerLink]="['/user/drawing']" routerLinkActive="active dark:!bg-[#303030]"
+                    href="javascript:void(0)" placement="end" ngbTooltip="Drawing" tooltipClass="toottipclass"
+                    container="body">
+                    <i class="bi bi-brush"></i>
+                    <span class="link_name">Drawing</span>
+                </a>
+
+            </li>
+        </ul>
+        <div>
+
+        </div>
+        <ul class="nav-links mt-6">
+            <li class="dark:hover:!bg-[#303030]">
+                <a href="javascript:void(0)" placement="end" ngbTooltip="Setting" tooltipClass="toottipclass"
+                    container="body">
+                    <i class="bi bi-gear"></i>
+                    <span class="link_name font-bold">Setting</span>
+                </a>
+
+            </li>
+            <li (click)="logout()" class="dark:hover:!bg-[#303030]">
+                <a href="javascript:void(0)" placement="end" ngbTooltip="Logout" tooltipClass="toottipclass"
+                    container="body">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                    <span class="link_name font-bold">Logout</span>
+                </a>
+
+            </li>
+            <li class="dark:hover:!bg-[#303030]">
+                <a #themeToggleBtn id="theme-toggle" href="javascript:void(0)"
+                    class="hidden lg:inline-block text-gray-500 dark:text-gray-400  hover:dark:text-gray-200 hover:bg-gray-200 bg-gray-100 dark:bg-[#181818] dark:hover:bg-[#303030] focus:outline-none   dark:focus:ring-gray-700 rounded-lg text-sm ">
+                    <!-- <svg #themeToggleLightIcon id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor"
+                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg> -->
+
+                    <i #themeToggleLightIcon id="theme-toggle-dark-icon" class="bi bi-sun-fill"></i>
+                    <!-- <svg #themeToggleDarkIcon id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor"
+                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                            fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg> -->
+
+                    <i #themeToggleDarkIcon id="theme-toggle-light-icon" class="bi bi-moon-fill"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>

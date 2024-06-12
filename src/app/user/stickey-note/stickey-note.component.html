@@ -2,36 +2,36 @@
 <div class="mx-8 h-full">
     <div class=" w-[100%]  mr-8 rounded-md ">
         <div
-            class="flex font-bold text-sm gap-2 justify-between rounded-md text-[#161B25] items-center bg-white px-3 py-2">
+            class="flex font-bold text-sm gap-2 justify-between rounded-md text-[#161B25] dark:text-gray-300 items-center bg-white dark:!bg-[#303030] px-3 py-2">
             <div class="">
                 <i class="bi bi-stickies text-xl mr-2"></i>
                 <span>Sticky Notes</span>
             </div>
             <div class="flex gap-2">
                 <div *ngIf="isColorVisible" class="flex gap-2">
-                    <div (click)="createNotes('EFE95E')"
+                    <div (click)="createNotes('daf7a1')"
                         class=" rounded-full h-9 w-9 flex items-center justify-center cursor-pointer">
-                        <div class="h-6 w-6 bg-[#EFE95E] rounded-full"></div>
+                        <div class="h-6 w-6 bg-[#daf7a1] rounded-full"></div>
                     </div>
-                    <div (click)="createNotes('36E767')"
+                    <div (click)="createNotes('ffc000')"
                         class=" rounded-full h-9 w-9 flex items-center justify-center cursor-pointer">
-                        <div class="h-6 w-6 bg-[#36E767] rounded-full"></div>
+                        <div class="h-6 w-6 bg-[#ffc000] rounded-full"></div>
                     </div>
-                    <div (click)="createNotes('6B97EE')"
+                    <div (click)="createNotes('6ed8fa')"
                         class=" rounded-full h-9 w-9 flex items-center justify-center cursor-pointer">
-                        <div class="h-6 w-6 bg-[#6B97EE] rounded-full"></div>
+                        <div class="h-6 w-6 bg-[#6ed8fa] rounded-full"></div>
                     </div>
-                    <div (click)="createNotes('F4A56C')"
+                    <div (click)="createNotes('ffcee0')"
                         class=" rounded-full h-9 w-9 flex items-center justify-center cursor-pointer">
-                        <div class="h-6 w-6 bg-[#F4A56C] rounded-full"></div>
+                        <div class="h-6 w-6 bg-[#ffcee0] rounded-full"></div>
                     </div>
-                    <div (click)="createNotes('F08787')"
+                    <div (click)="createNotes('b6d7a8')"
                         class=" rounded-full h-9 w-9 flex items-center justify-center cursor-pointer">
-                        <div class="h-6 w-6 bg-[#F08787] rounded-full"></div>
+                        <div class="h-6 w-6 bg-[#b6d7a8] rounded-full"></div>
                     </div>
-                    <div (click)="createNotes('2487C1')"
+                    <div (click)="createNotes('8ca0ff')"
                         class=" rounded-full h-9 w-9 flex items-center justify-center cursor-pointer">
-                        <div class="h-6 w-6 bg-[#2487C1] rounded-full"></div>
+                        <div class="h-6 w-6 bg-[#8ca0ff] rounded-full"></div>
                     </div>
                 </div>
                 <button (click)="selectColor()"
@@ -52,7 +52,7 @@
                                 <!-- <span 
                                     class="font-bold">{{note.title}}</span> -->
                                 <input
-                                    class="outline-none w-full bg-transparent border-none active:border-none active:outline-none font-bold"
+                                    class="outline-none w-full bg-transparent border-none active:border-none active:outline-none font-bold appearance-none focus:outline-none focus:ring-0"
                                     type="text" [formControlName]="note._id+'name'" id="title" name="title"
                                     placeholder="Note title">
                                 <i class="bi bi-three-dots-vertical"></i>
@@ -60,9 +60,10 @@
                             <div class="mt-1">
                                 <div class="flex flex-col gap-1">
                                     <!-- <span class="text-sm font-medium">{{note.description}}</span> -->
-                                    <textarea class="outline-none bg-transparent border-none" name="noteDescription"
-                                        [formControlName]="note._id+'desc'" id="noteDescription" cols="30"
-                                        placeholder="Start writing your note....."></textarea>
+                                    <textarea
+                                        class=" resize-none outline-none bg-transparent border-none h-48 appearance-none focus:outline-none focus:ring-0"
+                                        name="noteDescription" [formControlName]="note._id+'desc'" id="noteDescription"
+                                        cols="30" placeholder="Start writing your note....."></textarea>
                                 </div>
                                 <div class="flex items-center gap-2 justify-between text-xs mt-8">
                                     <div class="flex items-center gap-2">
