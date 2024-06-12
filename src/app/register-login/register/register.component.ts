@@ -8,6 +8,7 @@ import { environment } from '../../../environments/environment.development';
 import { Router } from '@angular/router';
 import { DialogboxService } from '../../Dialog-box/services/dialogbox.service';
 import { RegisterLoginService } from '../service/register-login.service';
+import { SharedService } from '../../shared/services/shared.service';
 
 @Component({
   selector: 'app-register',
@@ -23,6 +24,8 @@ export class RegisterComponent implements OnInit {
     private serviceModal: NgbModal,
     private apiService: ApiService,
     private router: Router,
+    private sharedService: SharedService,
+
     private confirmationDialogService: DialogboxService,
     private register_login_services: RegisterLoginService
 
@@ -108,6 +111,8 @@ export class RegisterComponent implements OnInit {
       this.apiService.postCall(base_url, this.signupForm.value).subscribe(
         (response) => {
           this.register_login_services.login(response.user.token); // Call the login method with the token
+          this.sharedService.setUser(response.user); // Store the user data
+
           this.modalClose();
           this.router.navigateByUrl('user/dashboard');
           this.confirmationDialogService.confirm('Success',
