@@ -3,6 +3,7 @@
 <div class="welcome-section relative h-32 mt-4 p-6 flex justify-between rounded-lg bg-[#1755E7] dark:bg-[#29356f] mx-8">
     <div>
         <h3 class="text-white font-bold text-xl capitalize" *ngIf="userData">Welcome back, {{userData['name']}}!</h3>
+        <h3 class="text-white font-bold text-xl capitalize" *ngIf="!userData">Welcome Dear Guest!</h3>
         <p class="text-white text-sm w-3/4">Today is {{ today | date:'fullDate' }}. You have 126 news and alerts, along
             with 3
             messages awaiting your response.</p>

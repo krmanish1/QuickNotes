@@ -4,6 +4,7 @@ import { DataService } from '../../cors/service/data.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from '../../register-login/register/register.component';
 import { LoginComponent } from '../../register-login/login/login.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -22,7 +23,8 @@ export class NavbarComponent implements OnInit {
     // private scrollService: ServiceService,
     private cdr: ChangeDetectorRef,
     private dataService: DataService,
-    private serviceModal: NgbModal
+    private serviceModal: NgbModal,
+    private router: Router, // Inject the Router service
   ) { }
 
   ngOnInit(): void {
@@ -147,6 +149,11 @@ export class NavbarComponent implements OnInit {
         }
       }
     );
+  }
+
+  guestLogin() {
+    this.router.navigate(['/user/dashboard']); // Replace '/dashboard' with the actual route to your dashboard
+
   }
 
 }
