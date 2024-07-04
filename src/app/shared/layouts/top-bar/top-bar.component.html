@@ -16,13 +16,13 @@
             <!-- avtar and dropdown -->
             <div class="action">
                 <div class="profile" (click)="profileToggle();">
-                    <img src="../../../../assets/images/avatar.jpg" />
+                    <img src="{{userData.profile_img}}" />
                 </div>
                 <div class="menu flex flex-col text-sm drop-shadow-xl shadow-inner">
                     <!-- <h4>Someone Famous<br /><span>Website Designer</span></h4> -->
                     <div class=" profile-info flex w-full gap-2 justify-between">
                         <div class="w-8 h-8 rounded-full">
-                            <img src="../../../../assets/images/avatar.jpg" class="rounded-full" />
+                            <img src="{{userData.profile_img}}" class="rounded-full" />
                         </div>
                         <div class="flex flex-col justify-start items-start">
                             <span class="text-sm">Abc&#64;xyz.com</span>

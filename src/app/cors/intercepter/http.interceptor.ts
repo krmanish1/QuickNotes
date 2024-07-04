@@ -1,14 +1,20 @@
-import { HttpInterceptorFn } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-export const httpInterceptor: HttpInterceptorFn = (req, next) => {
+@Injectable()
+export class HttpInterceptorService implements HttpInterceptor {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const myToken = localStorage.getItem('token');
+    console.log("token in intersepter:-", myToken);
 
-  const myToken = localStorage.getItem('token');
-  console.log("token in intersepter:-", myToken);
+    const cloneRequest = req.clone({
+      setHeaders: {
+        Authorization: `${myToken}`
+      }
+    });
+    console.log('Cloned request:', cloneRequest);
 
-  const cloneRequest = req.clone({
-    setHeaders: {
-      Authorization: `${myToken}`
-    }
-  })
-  return next(cloneRequest);
-};
+    return next.handle(cloneRequest);
+  }
+}

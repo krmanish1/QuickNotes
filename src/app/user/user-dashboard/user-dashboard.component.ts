@@ -10,34 +10,26 @@ import { DatePipe } from '@angular/common';
 })
 export class UserDashboardComponent {
 
-  userData: any;
+  public userData: any;
   today!: Date; // Declare the 'today' variable
 
 
   constructor(private sharedService: SharedService) {
-    // const user = this.sharedService.getUser();
-    // console.log(user);
+
 
   }
 
   ngOnInit() {
-    this.userData = this.sharedService.getUser()
-    if (this.userData) {
-      this.userData = this.userData;
+    this.sharedService.getUserData().then((data) => {
+      this.userData = data;
+      console.log('Received user data:', this.userData);
       // Use the user data as needed
-    }
-
-    console.log('Received user data:', this.userData);
+    });
 
     this.today = new Date();
 
   }
 
 
-
-  // ngOnInit() {
-  //   const user = this.sharedService.getUser();
-  //   this.username = user ? user.username : '';
-  // }
 
 }

@@ -94,9 +94,8 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.apiService.postCall(base_url, this.loginForm.value).subscribe(
         (response) => {
-          this.register_login_services.login(response.user.token); // Call the login method with the token
-          this.sharedService.setUser(response.user); // Store the user data
-
+          this.register_login_services.setToken(response.user.token); // Call the login method with the token
+          this.register_login_services.setUserId(response.user.id); // Call the login method with the token
           this.modalClose();
           this.router.navigate(['/user/dashboard']); // Replace '/dashboard' with the actual route to your dashboard
           this.confirmationDialogService.confirm('Success',

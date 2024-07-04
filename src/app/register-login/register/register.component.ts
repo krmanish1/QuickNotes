@@ -78,7 +78,7 @@ export class RegisterComponent implements OnInit {
     const name = control.value.trim();
     const regex = /^[a-zA-Z\s]*[a-zA-Z]$/; // Allow leading/trailing spaces and ensure the name starts and ends with a letter
     const isValid = regex.test(name);
-    console.log(`Validation result for ${name}: ${isValid}`);
+    // console.log(`Validation result for ${name}: ${isValid}`);
     return isValid ? null : { invalidName: true };
   }
 
@@ -103,16 +103,16 @@ export class RegisterComponent implements OnInit {
 
   onSignup() {
     const base_url = environment.BASE_URL + "api/signup";
-    console.log("signupform data:-", this.signupForm.value);
-    console.log("form validation:-", this.signupForm.valid);
+    // console.log("signupform data:-", this.signupForm.value);
+    // console.log("form validation:-", this.signupForm.valid);
     this.errorMSG = '';
     // Handle form submission here
     if (this.signupForm.valid) {
       this.apiService.postCall(base_url, this.signupForm.value).subscribe(
         (response) => {
-          this.register_login_services.login(response.user.token); // Call the login method with the token
-          this.sharedService.setUser(response.user); // Store the user data
-
+          this.register_login_services.setToken(response.user.token); // Call the login method with the token
+          // this.register_login_services.token = response.user.token;
+          this.register_login_services.setUserId(response.user.id);
           this.modalClose();
           this.router.navigateByUrl('user/dashboard');
           this.confirmationDialogService.confirm('Success',

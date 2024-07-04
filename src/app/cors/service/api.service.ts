@@ -1,12 +1,42 @@
+import { isPlatformBrowser } from '@angular/common';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
+import { RegisterLoginService } from '../../register-login/service/register-login.service';
+
+import { InjectionToken } from '@angular/core';
+
+export const WINDOW = new InjectionToken<Window>('WindowToken', {
+  factory: () => {
+    if (typeof window !== 'undefined') {
+      return window
+    }
+    return new Window(); // does this work?
+  }
+});
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
+  constructor(
+    private http: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private authservice: RegisterLoginService,
+
+  ) { }
+
+  private _window = inject(WINDOW); // or window = inject(WINDOW);
+
+
+  getLocalToken() {
+    // if (this.window && this.window.localStorage) {
+    //   return this.window.localStorage.getItem('token') || '';
+    // }
+    // return '';
+    return this.authservice.getToken()
+  }
 
 
 
@@ -14,11 +44,12 @@ export class ApiService {
     headers: new HttpHeaders({
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
+      "Authorization": `${this.getLocalToken()}`
     })
   }
 
 
-  constructor(private http: HttpClient) { }
+
 
   private formatErrors(error: any) {
     return throwError(error.error);
