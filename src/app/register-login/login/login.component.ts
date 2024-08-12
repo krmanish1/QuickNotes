@@ -39,34 +39,7 @@ export class LoginComponent {
   }
 
 
-  openRegister() {
-    this.modalClose();
-    this.dataService.modalInstance = this.serviceModal.open(
-      RegisterComponent,
-      {
-        windowClass: "modal-35",
-        backdrop: 'static', // Disables closing the modal by clicking the backdrop
-        keyboard: false, // Disables closing the modal by pressing the ESC key
-        centered: true
-      }
-    );
 
-    this.dataService.modalInstance.result.then(
-      () => {
-        // Handle modal dismissal here
-        console.log('Modal dismissed with OK');
-      },
-      (reason) => {
-        if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-          // Handle backdrop click here
-          console.log('Modal dismissed by clicking outside');
-        } else {
-          // Handle other dismissal reasons here
-          console.log('Modal dismissed with other reason:', reason);
-        }
-      }
-    );
-  }
 
   // Custom validator function
   emailValidator(): ValidatorFn {
@@ -96,7 +69,6 @@ export class LoginComponent {
         (response) => {
           this.register_login_services.setToken(response.user.token); // Call the login method with the token
           this.register_login_services.setUserId(response.user.id); // Call the login method with the token
-          this.modalClose();
           this.router.navigate(['/user/dashboard']); // Replace '/dashboard' with the actual route to your dashboard
           this.confirmationDialogService.confirm('Success',
             response.message,
@@ -122,32 +94,6 @@ export class LoginComponent {
 
 
 
-  openForgotPassword() {
-    this.modalClose();
-    this.dataService.modalInstance = this.serviceModal.open(
-      ForgotPasswordComponent,
-      {
-        windowClass: "modal-35",
-        backdrop: 'static', // Disables closing the modal by clicking the backdrop
-        keyboard: false // Disables closing the modal by pressing the ESC key
-      }
-    );
 
-    this.dataService.modalInstance.result.then(
-      () => {
-        // Handle modal dismissal here
-        console.log('Modal dismissed with OK');
-      },
-      (reason) => {
-        if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-          // Handle backdrop click here
-          console.log('Modal dismissed by clicking outside');
-        } else {
-          // Handle other dismissal reasons here
-          console.log('Modal dismissed with other reason:', reason);
-        }
-      }
-    );
-  }
 
 }

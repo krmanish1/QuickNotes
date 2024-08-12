@@ -67,8 +67,8 @@
     </span>
 
     <!-- admin dashboard items -->
-    <div class="flex justify-between flex-col dark:bg-[#181818]">
-        <ul class="nav-links">
+    <div class=" h-full dark:bg-[#181818]">
+        <ul class="nav-links h-screen">
             <li class="dark:hover:!bg-[#303030] ">
                 <a [routerLink]="['/user/dashboard']" routerLinkActive="active dark:!bg-[#303030]"
                     href="javascript:void(0)" placement="end" ngbTooltip="Dashboard" tooltipClass="toottipclass"
@@ -87,7 +87,7 @@
                 </a>
 
             </li>
-            <li class="dark:hover:!bg-[#303030]">
+            <!-- <li class="dark:hover:!bg-[#303030]">
                 <a [routerLink]="['/user/journal']" routerLinkActive="active dark:!bg-[#303030]"
                     href="javascript:void(0)" placement="end" ngbTooltip="Journal Richtext" tooltipClass="toottipclass"
                     container="body">
@@ -95,8 +95,8 @@
                     <span class="link_name">Journal Richtext</span>
                 </a>
 
-            </li>
-            <li class="dark:hover:!bg-[#303030]">
+            </li> -->
+            <!-- <li class="dark:hover:!bg-[#303030]">
                 <a [routerLink]="['/user/handwritten-note']" routerLinkActive="active dark:!bg-[#303030]"
                     href="javascript:void(0)" placement="end" ngbTooltip="Handwritten Note" tooltipClass="toottipclass"
                     container="body">
@@ -104,8 +104,8 @@
                     <span class="link_name">Handwritten Note</span>
                 </a>
 
-            </li>
-            <li class="dark:hover:!bg-[#303030]">
+            </li> -->
+            <!-- <li class="dark:hover:!bg-[#303030]">
                 <a [routerLink]="['/user/drawing']" routerLinkActive="active dark:!bg-[#303030]"
                     href="javascript:void(0)" placement="end" ngbTooltip="Drawing" tooltipClass="toottipclass"
                     container="body">
@@ -113,47 +113,37 @@
                     <span class="link_name">Drawing</span>
                 </a>
 
-            </li>
+            </li> -->
         </ul>
-        <div>
 
-        </div>
-        <ul class="nav-links mt-6">
-            <li class="dark:hover:!bg-[#303030]">
+        <!-- <ul class="nav-links"> -->
+        <!-- <li class="dark:hover:!bg-[#303030]">
                 <a href="javascript:void(0)" placement="end" ngbTooltip="Setting" tooltipClass="toottipclass"
                     container="body">
                     <i class="bi bi-gear"></i>
                     <span class="link_name font-bold">Setting</span>
                 </a>
 
-            </li>
-            <li (click)="logout()" class="dark:hover:!bg-[#303030]">
+            </li> -->
+        <!-- <li (click)="logout()" class="dark:hover:!bg-[#303030]">
                 <a href="javascript:void(0)" placement="end" ngbTooltip="Logout" tooltipClass="toottipclass"
                     container="body">
                     <i class="bi bi-box-arrow-in-right"></i>
                     <span class="link_name font-bold">Logout</span>
                 </a>
 
-            </li>
-            <li class="dark:hover:!bg-[#303030]">
+            </li> -->
+        <!-- <li class="dark:hover:!bg-[#303030]">
                 <a #themeToggleBtn id="theme-toggle" href="javascript:void(0)"
                     class="hidden lg:inline-block text-gray-500 dark:text-gray-400  hover:dark:text-gray-200 hover:bg-gray-200 bg-gray-100 dark:bg-[#181818] dark:hover:bg-[#303030] focus:outline-none   dark:focus:ring-gray-700 rounded-lg text-sm ">
-                    <!-- <svg #themeToggleLightIcon id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor"
-                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                    </svg> -->
+   
 
                     <i #themeToggleLightIcon id="theme-toggle-dark-icon" class="bi bi-sun-fill"></i>
-                    <!-- <svg #themeToggleDarkIcon id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor"
-                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                            fill-rule="evenodd" clip-rule="evenodd"></path>
-                    </svg> -->
+   
 
                     <i #themeToggleDarkIcon id="theme-toggle-light-icon" class="bi bi-moon-fill"></i>
                 </a>
-            </li>
-        </ul>
+            </li> -->
+        <!-- </ul> -->
     </div>
 </div>

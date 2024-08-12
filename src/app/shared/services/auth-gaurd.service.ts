@@ -18,7 +18,7 @@ export class AuthGaurdService {
     if (this.register_login_services.isLoggedIn()) {
       return true;
     } else {
-      this.router.navigate(['QuickNote/home']); // Redirect to login page
+      this.router.navigate(['/login']); // Redirect to login page
       return false;
     }
   }

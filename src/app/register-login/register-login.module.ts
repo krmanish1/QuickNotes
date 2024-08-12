@@ -14,9 +14,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 @NgModule({
   declarations: [
     RegisterLoginComponent,
-    // ForgotPasswordComponent,
-    // RegisterComponent,
-    // LoginComponent
+    ForgotPasswordComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +25,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     FormsModule,
     RegisterLoginRoutingModule,
   ],
+  exports: [RegisterComponent,
+    LoginComponent,
+    ForgotPasswordComponent,],
   providers: [
     ApiService, // Ensure ApiService is provided here if it's not already
   ],

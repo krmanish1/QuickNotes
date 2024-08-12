@@ -39,14 +39,12 @@ export class RegisterLoginService {
   token: any = '';
 
   getToken() {
-    // if (this.window && this.window.localStorage) {
-    //   return this._window.localStorage.getItem('token') || '';
-    // }
-    // return '';
-
-    return localStorage.getItem('token');
-
+    if (isPlatformBrowser(this.platformId)) {
+      return localStorage.getItem('token');
+    }
+    return null; // Return null or some fallback value when not in a browser environment
   }
+
 
   logout() {
     if (isPlatformBrowser(this.platformId)) {

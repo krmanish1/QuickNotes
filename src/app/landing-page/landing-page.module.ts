@@ -5,6 +5,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LandingPageRoutingModule } from './landing-page-routing.module';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterLoginModule } from '../register-login/register-login.module';
 
 
 
@@ -17,7 +18,7 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     CommonModule,
-    LandingPageRoutingModule
+    LandingPageRoutingModule,
   ]
 })
 export class LandingPageModule { }

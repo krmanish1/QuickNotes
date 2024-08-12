@@ -112,26 +112,5 @@ textarea::-webkit-scrollbar-thumb,
 }
 
 
-
-
-// ckeditor
-
-.ck-reset_all :not(.ck-reset_all-excluded *),
-.ck.ck-reset,
-.ck.ck-reset_all {
-    background: transparent;
-    border: 0;
-    box-sizing: border-box;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    position: static;
-    text-decoration: none;
-    transition: none;
-    vertical-align: middle;
-    width: 127%;
-    word-wrap: break-word;
-}
-
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

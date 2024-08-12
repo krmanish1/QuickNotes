@@ -11,7 +11,7 @@ const routes: Routes = [
     component: RegisterLoginComponent,
     children: [
       {
-        path: 'login',
+        path: '',
         component: LoginComponent
       },
       {

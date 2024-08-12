@@ -1,12 +1,10 @@
 <div class="h-6"></div>
 <!-- welcome tab -->
-<div class="welcome-section relative h-32 mt-4 p-6 flex justify-between rounded-lg bg-[#1755E7] dark:bg-[#29356f] mx-8">
+<div class="welcome-section relative h-32 mt-4 p-6 flex justify-between rounded-lg bg-[#1755E7]  mx-8">
     <div>
         <h3 class="text-white font-bold text-xl capitalize" *ngIf="userData">Welcome back, {{userData['name']}}!</h3>
         <h3 class="text-white font-bold text-xl capitalize" *ngIf="!userData">Welcome Dear Guest!</h3>
-        <p class="text-white text-sm w-3/4">Today is {{ today | date:'fullDate' }}. You have 126 news and alerts, along
-            with 3
-            messages awaiting your response.</p>
+        <p class="text-white text-sm w-full">Today is {{ today | date:'fullDate' }}. </p>
     </div>
     <div class="image absolute top-[-56px] right-0">
         <img src="../../../assets/images/Flat-Journalist.png" alt="Journalist">
@@ -19,7 +17,8 @@
         <div class="w-[98%]">
             <div class="flex gap-9 ">
 
-                <div class="flex bg-white dark:!bg-[#303030] w-[18%] h-16 rounded-md px-3 py-2 gap-3 items-center ">
+                <div (click)="goToStickynote()"
+                    class=" cursor-pointer flex bg-white dark:!bg-[#303030] w-[18%] h-16 rounded-md px-3 py-2 gap-3 items-center ">
                     <div
                         class="h-9 w-9 rounded-full bg-[#F0F2F5] dark:!bg-[#202020] flex justify-center items-center text-[#1755E7]">
                         <i class="bi bi-stickies-fill"></i>
@@ -32,7 +31,7 @@
                     </div>
                 </div>
 
-                <div class="flex bg-white dark:!bg-[#303030] w-[20%] h-16 rounded-md px-3 py-2 gap-3 items-center ">
+                <!-- <div class="flex bg-white dark:!bg-[#303030] w-[20%] h-16 rounded-md px-3 py-2 gap-3 items-center ">
                     <div
                         class="h-9 w-9 rounded-full bg-[#F0F2F5] dark:!bg-[#202020]  flex justify-center items-center text-[#1755E7]">
                         <i class="bi bi-journal-richtext"></i>
@@ -44,9 +43,9 @@
                         <span class="text-[#07485B] dark:text-[#c9d2e9] font-semibold text-[14px]">Journal
                             Richtext</span>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="flex bg-white dark:!bg-[#303030] w-[22%] h-16 rounded-md px-3 py-2 gap-3 items-center ">
+                <!-- <div class="flex bg-white dark:!bg-[#303030] w-[22%] h-16 rounded-md px-3 py-2 gap-3 items-center ">
                     <div
                         class="h-9 w-9 rounded-full bg-[#F0F2F5] dark:!bg-[#202020]  flex justify-center items-center text-[#1755E7]">
                         <i class="bi bi-pen-fill"></i>
@@ -58,9 +57,9 @@
                         <span class="text-[#07485B] dark:text-[#c9d2e9] font-semibold text-[14px]">Handwritten
                             Note</span>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="flex bg-white dark:!bg-[#303030] w-[18%] h-16 rounded-md px-3 py-2 gap-3 items-center ">
+                <!-- <div class="flex bg-white dark:!bg-[#303030] w-[18%] h-16 rounded-md px-3 py-2 gap-3 items-center ">
                     <div
                         class="h-9 w-9 rounded-full bg-[#F0F2F5] dark:!bg-[#202020]  flex justify-center items-center text-[#1755E7]">
                         <i class="bi bi-brush-fill"></i>
@@ -71,10 +70,10 @@
                         </div>
                         <span class="text-[#07485B] dark:text-[#c9d2e9] font-semibold text-[14px]">Drawing</span>
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- catagories overview -->
-            <div class=" mt-8 w-[98%] mr-8 rounded-md">
+            <!-- <div class=" mt-8 w-[98%] mr-8 rounded-md">
                 <div
                     class="flex font-bold text-sm gap-2  rounded-md text-[#D2D2D2] items-center bg-white dark:!bg-[#303030] p-2">
                     <i class='bx bx-category-alt text-xl'></i>
@@ -137,7 +136,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Recents notes -->
             <div class=" mt-8 w-[98%] mr-8 rounded-md">
@@ -147,31 +146,50 @@
                     <span>Recent Notes</span>
                 </div>
                 <div class="flex py-2 mt-3 gap-2 items-center justify-between text-[#07485B]">
-                    <div class="p-3 w-[30%] bg-[#EFE95E] rounded-md">
-                        <div class="flex justify-between items-start">
-                            <span class="text-xs">27/03/2024</span>
-                            <i class="bi bi-three-dots-vertical"></i>
+                    <ng-template #notesList>
+
+                        <div class="flex flex-row py-2 mt-3 gap-2 items-center justify-between text-[#07485B]">
+                            <ng-container *ngFor="let note of notesItem">
+                                <div class="p-3 w-[318px] bg-[#{{note.color}}] rounded-md">
+                                    <div class="flex justify-between items-start">
+                                        <span class="font-bold">{{note.title}}</span>
+                                        <!-- <input
+                                            class="outline-none w-full bg-transparent border-none active:border-none active:outline-none font-bold appearance-none focus:outline-none focus:ring-0"
+                                            type="text" readonly [formControlName]="note._id+'name'" id="title"
+                                            name="title" placeholder="Note title"> -->
+                                        <!-- <i class="bi bi-three-dots-vertical"></i> -->
+                                    </div>
+                                    <div class="mt-1">
+                                        <div class="flex flex-col gap-1">
+                                            <span class="text-sm font-medium">{{note.description}}</span>
+                                            <!-- <textarea
+                                                class="  resize-none outline-none bg-transparent border-none h-48 appearance-none focus:outline-none focus:ring-0"
+                                                name="noteDescription" [formControlName]="note._id+'desc'"
+                                                id="noteDescription" cols="30" readonly
+                                                placeholder="Start writing your note....."></textarea> -->
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </ng-container>
                         </div>
-                        <div class="mt-1">
-                            <div class="flex flex-col gap-1 font-bold ">
-                                <span>Title
-                                </span>
-                                <span class="text-sm font-medium">Description...</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-xs mt-8">
-                                <i class="bi bi-clock-fill"></i>
-                                <span>10:30 PM, Monday</span>
-                            </div>
-                        </div>
+                    </ng-template>
+
+
+                    <div *ngIf="notesItem.length === 0; else notesList"
+                        class=" w-full h-[300px] flex justify-center items-center bg-white dark:!bg-[#303030]">
+                        <p class=" dark:!text-white">No notes available.</p>
+                        <!-- Add a button or link here to trigger the note creation process -->
+                        <!-- <button (click)="createNotes('color')">Create Note</button> -->
                     </div>
 
                 </div>
             </div>
         </div>
 
-        <div class="w-1/4">
+        <!-- <div class="w-1/4">
             <app-right-bar></app-right-bar>
-        </div>
+        </div> -->
     </div>
 
 </div>
