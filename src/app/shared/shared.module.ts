@@ -5,6 +5,7 @@ import { RightBarComponent } from './layouts/right-bar/right-bar.component';
 import { TopBarComponent } from './layouts/top-bar/top-bar.component';
 import { PageNotFoundComponent } from './layouts/page-not-found/page-not-found.component';
 import { ColorSelectionComponent } from './color-selection/color-selection.component';
+import { LoaderComponent } from './loader/loader.component';
 
 
 
@@ -12,6 +13,7 @@ import { ColorSelectionComponent } from './color-selection/color-selection.compo
   declarations: [
     PageNotFoundComponent,
     ColorSelectionComponent,
+    LoaderComponent,
 
   ],
   imports: [
@@ -20,6 +22,8 @@ import { ColorSelectionComponent } from './color-selection/color-selection.compo
   ],
   exports: [
     PageNotFoundComponent,
+    LoaderComponent,
+
   ]
 })
 export class SharedModule { }

@@ -9,6 +9,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpInterceptorService } from './cors/intercepter/http.interceptor';
 import { RegisterLoginModule } from './register-login/register-login.module';
+import { LoaderComponent } from './shared/loader/loader.component';
+import { SharedModule } from './shared/shared.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -16,9 +19,9 @@ import { RegisterLoginModule } from './register-login/register-login.module';
     DialogboxComponent,
 
 
-
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -26,7 +29,7 @@ import { RegisterLoginModule } from './register-login/register-login.module';
     NgbModule,
     NgbTooltipModule,
     RegisterLoginModule,
-
+    SharedModule
   ],
   providers: [
     provideClientHydration(),

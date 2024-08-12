@@ -6,6 +6,7 @@ import { environment } from '../../../environments/environment.development';
 import { DataService } from '../../cors/service/data.service';
 import { ApiService } from '../../cors/service/api.service';
 import { DialogboxService } from '../../Dialog-box/services/dialogbox.service';
+import { LoaderService } from '../../shared/services/loader.service';
 
 
 
@@ -27,7 +28,12 @@ export class StickeyNoteComponent implements OnInit {
   isDescriptionEmpty = false;
 
 
-  constructor(private data_service: DataService, private apiService: ApiService, private confirmationDialogService: DialogboxService) {
+  constructor(
+    private data_service: DataService,
+    private apiService: ApiService,
+    private confirmationDialogService: DialogboxService,
+    private loaderService: LoaderService
+  ) {
 
   }
 
@@ -54,12 +60,27 @@ export class StickeyNoteComponent implements OnInit {
     this.colorSelected = color;
     const base_url = environment.BASE_URL + "api/createstickyNotes";
     try {
+      this.loaderService.showLoader;
       const response = await this.apiService.postCall(base_url, this.stickeyNoteData).toPromise();
-      console.log("Response:", response);
+
       this.notesItem.unshift(response);
+      this.loaderService.hideLoader;
       this.getAllStickyNotes();
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error:", error);
+      this.loaderService.hideLoader;
+      this.confirmationDialogService.confirm('Error',
+        error.message,
+        'Ok',
+        'Cancel',
+        'lg',
+        'error')
+        .then(async (confirmed) => {
+
+          console.log('User confirmed:', confirmed)
+        }
+        )
+        .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
     }
 
 
@@ -109,16 +130,31 @@ export class StickeyNoteComponent implements OnInit {
   async getAllStickyNotes() {
 
     const base_url = environment.BASE_URL + "api/getAllStickyNote";
+    this.loaderService.showLoader;
     try {
       const response = await this.apiService.getCall(base_url).toPromise();
       //   console.log("Response:", response);
       this.notesItem = response;
+      this.loaderService.hideLoader;
       this.StickyNote = new FormGroup(this.create_form(response))
       console.log(this.StickyNote);
       this.formControl()
 
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error:", error);
+      this.loaderService.hideLoader;
+      this.confirmationDialogService.confirm('Error',
+        error.message,
+        'OK',
+        'Cancel',
+        'lg',
+        'error')
+        .then(async (confirmed) => {
+
+          console.log('User confirmed:', confirmed)
+        }
+        )
+        .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
     }
   }
 
@@ -147,14 +183,27 @@ export class StickeyNoteComponent implements OnInit {
       console.log("Update Response:", response);
       // Optionally, refresh the list of notes or update the UI to reflect the changes
       this.getAllStickyNotes();
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error updating note:", error);
+      this.confirmationDialogService.confirm('Error',
+        error.message,
+        'Ok',
+        'Cancel',
+        'lg',
+        'error')
+        .then(async (confirmed) => {
+
+          console.log('User confirmed:', confirmed)
+        }
+        )
+        .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
     }
   }
 
   deleteStickyNote(id: string) {
 
     const base_url = environment.BASE_URL + `api/deletestickyNotes/${id}`;
+
     this.confirmationDialogService.confirm('Delete',
       'Are you sure want to delete the Notes?',
       'Delete',
@@ -164,13 +213,28 @@ export class StickeyNoteComponent implements OnInit {
       .then(async (confirmed) => {
         if (confirmed) {
           try {
+            this.loaderService.showLoader;
             const response = await this.apiService.deleteCall(base_url).toPromise();
+            this.loaderService.hideLoader;
             console.log("Update Response:", response);
             this.notesItem = this.notesItem.filter(note => note._id !== id);
             // Optionally, refresh the list of notes or update the UI to reflect the changes
             this.getAllStickyNotes();
-          } catch (error) {
+          } catch (error: any) {
             console.error("Error deleting note:", error);
+            this.loaderService.hideLoader;
+            this.confirmationDialogService.confirm('Error',
+              error.message,
+              'Ok',
+              'Cancel',
+              'lg',
+              'error')
+              .then(async (confirmed) => {
+
+                console.log('User confirmed:', confirmed)
+              }
+              )
+              .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
           }
         }
         console.log('User confirmed:', confirmed)

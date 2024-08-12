@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, viewChild } from '@angular/core';
 import { DataService } from '../../cors/service/data.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from '../register/register.component';
@@ -10,6 +10,8 @@ import { RegisterLoginService } from '../service/register-login.service';
 import { DialogboxService } from '../../Dialog-box/services/dialogbox.service';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 import { SharedService } from '../../shared/services/shared.service';
+import { LoaderComponent } from '../../shared/loader/loader.component';
+import { LoaderService } from '../../shared/services/loader.service';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +19,8 @@ import { SharedService } from '../../shared/services/shared.service';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+
+  @ViewChild(LoaderComponent) loader?: LoaderComponent;
 
   errorMSG!: string
   constructor(
@@ -26,6 +30,7 @@ export class LoginComponent {
     private register_login_services: RegisterLoginService,
     private confirmationDialogService: DialogboxService,
     private sharedService: SharedService,
+    private loaderService: LoaderService,
     private router: Router, // Inject the Router service
 
 
@@ -64,11 +69,14 @@ export class LoginComponent {
     console.log(this.loginForm.value);
     this.errorMSG = '';
     const base_url = environment.BASE_URL + "api/login";
+    this.loaderService.showLoader;
     if (this.loginForm.valid) {
       this.apiService.postCall(base_url, this.loginForm.value).subscribe(
         (response) => {
           this.register_login_services.setToken(response.user.token); // Call the login method with the token
           this.register_login_services.setUserId(response.user.id); // Call the login method with the token
+          this.loaderService.hideLoader;
+
           this.router.navigate(['/user/dashboard']); // Replace '/dashboard' with the actual route to your dashboard
           this.confirmationDialogService.confirm('Success',
             response.message,
@@ -87,6 +95,8 @@ export class LoginComponent {
         }, (error) => {
           console.log(error);
           this.errorMSG = error;
+          this.loaderService.hideLoader;
+
         }
       );
     }
