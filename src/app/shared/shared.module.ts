@@ -5,7 +5,6 @@ import { RightBarComponent } from './layouts/right-bar/right-bar.component';
 import { TopBarComponent } from './layouts/top-bar/top-bar.component';
 import { PageNotFoundComponent } from './layouts/page-not-found/page-not-found.component';
 import { ColorSelectionComponent } from './color-selection/color-selection.component';
-import { LoaderComponent } from './loader/loader.component';
 
 
 
@@ -13,7 +12,6 @@ import { LoaderComponent } from './loader/loader.component';
   declarations: [
     PageNotFoundComponent,
     ColorSelectionComponent,
-    LoaderComponent,
 
   ],
   imports: [
