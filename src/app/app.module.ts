@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpInterceptorService } from './cors/intercepter/http.interceptor';
 import { RegisterLoginModule } from './register-login/register-login.module';
+import { LoadingInterceptor } from './cors/intercepter/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,11 @@ import { RegisterLoginModule } from './register-login/register-login.module';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
+      multi: true // This is important!
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
       multi: true // This is important!
     }
   ],
