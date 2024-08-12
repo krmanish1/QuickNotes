@@ -60,15 +60,15 @@ export class StickeyNoteComponent implements OnInit {
     this.colorSelected = color;
     const base_url = environment.BASE_URL + "api/createstickyNotes";
     try {
-      this.loaderService.showLoader;
+      this.loaderService.showLoader();
       const response = await this.apiService.postCall(base_url, this.stickeyNoteData).toPromise();
 
       this.notesItem.unshift(response);
-      this.loaderService.hideLoader;
+      this.loaderService.hideLoader();
       this.getAllStickyNotes();
     } catch (error: any) {
       console.error("Error:", error);
-      this.loaderService.hideLoader;
+      this.loaderService.hideLoader();
       this.confirmationDialogService.confirm('Error',
         error.message,
         'Ok',
@@ -130,19 +130,19 @@ export class StickeyNoteComponent implements OnInit {
   async getAllStickyNotes() {
 
     const base_url = environment.BASE_URL + "api/getAllStickyNote";
-    this.loaderService.showLoader;
+    this.loaderService.showLoader();
     try {
       const response = await this.apiService.getCall(base_url).toPromise();
       //   console.log("Response:", response);
       this.notesItem = response;
-      this.loaderService.hideLoader;
+      this.loaderService.hideLoader();
       this.StickyNote = new FormGroup(this.create_form(response))
       console.log(this.StickyNote);
       this.formControl()
 
     } catch (error: any) {
       console.error("Error:", error);
-      this.loaderService.hideLoader;
+      this.loaderService.hideLoader();
       this.confirmationDialogService.confirm('Error',
         error.message,
         'OK',
@@ -213,16 +213,16 @@ export class StickeyNoteComponent implements OnInit {
       .then(async (confirmed) => {
         if (confirmed) {
           try {
-            this.loaderService.showLoader;
+            this.loaderService.showLoader();
             const response = await this.apiService.deleteCall(base_url).toPromise();
-            this.loaderService.hideLoader;
+            this.loaderService.hideLoader();
             console.log("Update Response:", response);
             this.notesItem = this.notesItem.filter(note => note._id !== id);
             // Optionally, refresh the list of notes or update the UI to reflect the changes
             this.getAllStickyNotes();
           } catch (error: any) {
             console.error("Error deleting note:", error);
-            this.loaderService.hideLoader;
+            this.loaderService.hideLoader();
             this.confirmationDialogService.confirm('Error',
               error.message,
               'Ok',

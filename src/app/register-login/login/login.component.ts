@@ -20,7 +20,7 @@ import { LoaderService } from '../../shared/services/loader.service';
 })
 export class LoginComponent {
 
-  @ViewChild(LoaderComponent) loader?: LoaderComponent;
+  // @ViewChild(LoaderComponent) loader?: LoaderComponent;
 
   errorMSG!: string
   constructor(
@@ -67,15 +67,15 @@ export class LoginComponent {
   logIn() {
     // Handle form submission here
     console.log(this.loginForm.value);
+    this.loaderService.showLoader();
     this.errorMSG = '';
     const base_url = environment.BASE_URL + "api/login";
-    this.loaderService.showLoader;
     if (this.loginForm.valid) {
       this.apiService.postCall(base_url, this.loginForm.value).subscribe(
         (response) => {
           this.register_login_services.setToken(response.user.token); // Call the login method with the token
           this.register_login_services.setUserId(response.user.id); // Call the login method with the token
-          this.loaderService.hideLoader;
+          this.loaderService.hideLoader();
 
           this.router.navigate(['/user/dashboard']); // Replace '/dashboard' with the actual route to your dashboard
           this.confirmationDialogService.confirm('Success',
@@ -95,7 +95,7 @@ export class LoginComponent {
         }, (error) => {
           console.log(error);
           this.errorMSG = error;
-          this.loaderService.hideLoader;
+          this.loaderService.hideLoader();
 
         }
       );
